@@ -1,0 +1,35 @@
+$border-color: #ebebee
+
+.game-grid
+  $self: &
+  border-right: 2px solid $border-color
+  border-bottom: 2px solid $border-color
+  &:after
+    clear: both
+    content: " "
+    display: table
+
+  @for $i from 1 through 24
+    &--size-#{$i}
+      li:nth-child(#{$i}n+1)
+        clear: left
+
+  li
+    display: block
+    float: left
+    width: 45px
+    height: 45px
+    box-sizing: border-box
+    border-top: 2px solid $border-color
+    border-left: 2px solid $border-color
+
+  &__cell
+    &--pending
+      cursor: pointer
+      background-color: #42d8e8
+    &--computer
+      cursor: not-allowed
+      background-color: #e85a5f
+    &--user
+      cursor: not-allowed
+      background-color: #00e871
